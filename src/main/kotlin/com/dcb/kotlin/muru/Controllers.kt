@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/books")
 class BookController (val repo : BookRepository){
-    @PostMapping("/")
+    @PostMapping
     fun addBooks(@RequestBody book: Book) {
         repo.save(book)
     }
@@ -15,7 +15,7 @@ class BookController (val repo : BookRepository){
         return repo.findAll().toList()
     }*/
      //this can be simplified like below as well.
-    @GetMapping("/")
+    @GetMapping
     fun getAllBooks() = repo.findAll().toList()
 
     @GetMapping("/{title}")
